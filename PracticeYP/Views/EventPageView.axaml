@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:vm="using:PracticeYP.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="PracticeYP.EventPageView"
+			 x:DataType="vm:EventPageViewModel">
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="60"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="60"/>
+		</Grid.RowDefinitions>
+
+		<StackPanel Grid.Row="0">
+			<TextBlock Text="Мероприятия" HorizontalAlignment="Center" FontSize="30"></TextBlock>
+		</StackPanel>
+
+		<ListBox Grid.Row="1" ItemsSource="{Binding Events}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Vertical">
+						<TextBlock Text="{Binding EventName}"></TextBlock>
+						<TextBlock Text="{Binding Date, StringFormat=Дата начала: {0}}"></TextBlock>
+						<TextBlock Text="{Binding Days, StringFormat=Количество дней: {0}}"></TextBlock>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+
+		<Button Grid.Row="2" Content="Авторизация" Command="" Margin="10"></Button>
+
+	</Grid>
+	
+</UserControl>
