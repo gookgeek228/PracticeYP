@@ -1,0 +1,45 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:vm="using:PracticeYP.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="PracticeYP.AuthPageView"
+			 x:DataType="vm:AuthPageViewModel">
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="60"/>
+		</Grid.RowDefinitions>
+
+		<StackPanel Grid.Row="0" VerticalAlignment="Center" Width="400">
+
+			<TextBlock Text="Авторизация" HorizontalAlignment="Center" FontSize="20" Margin="0,0,0,20"></TextBlock>
+
+			<TextBlock Margin="0,0,0,5">Логин</TextBlock>
+			<TextBox Text="{Binding Login}" Watermark="Введите логин" Margin="0,0,0,10" Height="40" VerticalContentAlignment="Center" CornerRadius="10"></TextBox>
+			<TextBlock Margin="0,0,0,5">Пароль</TextBlock>
+			<TextBox Text="{Binding Password}" Watermark="Введите пароль" Margin="0,0,0,20" Height="40" VerticalContentAlignment="Center" CornerRadius="10" PasswordChar="*"></TextBox>
+			<Image Source="{Binding CaptchaImage}" Width="250" Height="100" Margin="0,0,0,10"/>
+			<TextBlock Text="{Binding ResultMessage}" Foreground="Black" Margin="0,0,0,10"></TextBlock>
+			<TextBox Text="{Binding UserInput, Mode=TwoWay}" Watermark="Введите логин" Margin="0,0,0,20" Height="40" VerticalContentAlignment="Center" CornerRadius="10"></TextBox>
+
+			<StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Spacing="10" Margin="0,0,0,20">
+				<Button Content="Обновить" Command="{Binding GenerateCaptchaCommand}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Aquamarine" Foreground="White" Width="100" Height="40" CornerRadius="10" HorizontalAlignment="Center"></Button>
+				<Button Content="Проверить" Command="{Binding ValidateCaptchaCommand}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Aquamarine" Foreground="White" Width="100" Height="40" CornerRadius="10" HorizontalAlignment="Center"></Button>
+			</StackPanel>
+
+			<TextBlock Text="{Binding Message}" Foreground="Black" Margin="0,0,0,20"></TextBlock>
+
+		</StackPanel>
+
+		<StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="10" Margin="0,0,0,20">
+			<Button Content="Назад" Command="{Binding GoBackCommand}" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Aquamarine" Foreground="White" Width="80" Height="40" CornerRadius="10" Margin="20,0,0,20"></Button>
+			<Button Content="Войти" Command="{Binding Authorization}" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Aquamarine" Foreground="White" Width="80" Height="40" CornerRadius="10" Margin="0,0,0,20"></Button>
+		</StackPanel>
+		
+	</Grid>
+	
+
+</UserControl>

@@ -5,11 +5,11 @@ using PracticeYP.ViewModels;
 
 namespace PracticeYP;
 
-public partial class EventPageView : UserControl
+public partial class AuthPageView : UserControl
 {
-    public EventPageView()
+    public AuthPageView()
     {
-        DataContext = new EventPageViewModel();
+        DataContext = new AuthPageViewModel();
         InitializeComponent();
     }
 }

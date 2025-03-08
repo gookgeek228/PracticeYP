@@ -10,12 +10,41 @@
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="60"/>
-			<RowDefinition Height="*"/>
+			<RowDefinition Height="400"/>
 			<RowDefinition Height="60"/>
 		</Grid.RowDefinitions>
 
 		<StackPanel Grid.Row="0">
-			<TextBlock Text="Мероприятия" HorizontalAlignment="Center" FontSize="30"></TextBlock>
+			<TextBlock Text="Мероприятия" HorizontalAlignment="Center" FontSize="20"></TextBlock>
+
+			<StackPanel Orientation="Horizontal" Spacing="20" Margin="20,0,0,0">
+				<TextBox Watermark="Поиск" Text="{Binding TextFind, Mode=TwoWay}" Width="300"></TextBox>
+
+				<ComboBox SelectedItem="{Binding SelectedSortOrder}">
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding}"/>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+					<ComboBox.Items>
+						<x:String>По возрастанию</x:String>
+						<x:String>По убыванию</x:String>
+					</ComboBox.Items>
+				</ComboBox>
+
+				<ComboBox SelectedItem="{Binding SelectedSortParametr}">
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding}"/>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+					<ComboBox.Items>
+						<x:String>Все типы</x:String>
+						<x:String>Дата</x:String>
+					</ComboBox.Items>
+				</ComboBox>
+			</StackPanel>
+			
 		</StackPanel>
 
 		<ListBox Grid.Row="1" ItemsSource="{Binding Events}">
@@ -30,7 +59,7 @@
 			</ListBox.ItemTemplate>
 		</ListBox>
 
-		<Button Grid.Row="2" Content="Авторизация" Command="" Margin="10"></Button>
+		<Button Grid.Row="2" VerticalAlignment="Center" Content="Авторизация" Command="{Binding GoToAuth}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Aquamarine" Foreground="White" Width="140" Height="40" CornerRadius="10" Margin="20"></Button>
 
 	</Grid>
 	
