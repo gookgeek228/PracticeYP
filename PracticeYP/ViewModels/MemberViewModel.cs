@@ -30,6 +30,18 @@ namespace PracticeYP.ViewModels
 
         }
 
+        public void GoBack()
+        {
+            if (MainWindowViewModel.Instance.PreviousPage == "AuthPageView")
+            {
+                MainWindowViewModel.Instance.PageSwitcher = new AuthPageView();
+            }
+            else if (MainWindowViewModel.Instance.PreviousPage == "OrganizerView")
+            {
+                MainWindowViewModel.Instance.PageSwitcher = new OrganizerView();
+            }
+        }
+
         partial void OnTextFindChanged(string value)
         {
             ApplyFilters();

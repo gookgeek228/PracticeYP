@@ -32,7 +32,7 @@
 			</ListBox.ItemTemplate>
 		</ListBox>
 
-		<Button Grid.Row="2" VerticalAlignment="Center" Content="Назад" Command="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Aquamarine" Foreground="White" Width="140" Height="40" CornerRadius="10" Margin="20"></Button>
+		<Button Grid.Row="2" VerticalAlignment="Center" Content="Назад" Command="{Binding GoBack}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Aquamarine" Foreground="White" Width="140" Height="40" CornerRadius="10" Margin="20"></Button>
 
 	</Grid>
 	
