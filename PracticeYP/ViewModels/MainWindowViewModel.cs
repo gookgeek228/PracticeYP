@@ -11,6 +11,8 @@ namespace PracticeYP.ViewModels
         [ObservableProperty] UserControl pageSwitcher;
         [ObservableProperty] private string previousPage;
 
+        public User? loginedUser;
+
         public MainWindowViewModel()
         {
             Instance = this;

@@ -7,6 +7,7 @@ using Avalonia.Media;
 using Avalonia;
 using CommunityToolkit.Mvvm.Input;
 using System.Globalization;
+using Microsoft.EntityFrameworkCore;
 
 namespace PracticeYP.ViewModels
 {
@@ -38,22 +39,30 @@ namespace PracticeYP.ViewModels
                     if (Db.Users.FirstOrDefault(x => x.Email == login && x.Password == password && x.IdRole == 2) != null)
                     {
                         //Участник
+                        MainWindowViewModel.Instance.loginedUser = Db.Users.Include(x => x.IdGenderNavigation).FirstOrDefault(x => x.Email == login && x.Password == password);
                         MainWindowViewModel.Instance.PreviousPage = MainWindowViewModel.Instance.PageSwitcher?.GetType().Name;
+                        MainWindowViewModel.Instance.PageSwitcher = new MemberView();
                     }
                     else if (Db.Users.FirstOrDefault(x => x.Email == login && x.Password == password && x.IdRole == 3) != null)
                     {
                         //Модератор
+                        MainWindowViewModel.Instance.loginedUser = Db.Users.Include(x => x.IdGenderNavigation).FirstOrDefault(x => x.Email == login && x.Password == password);
                         MainWindowViewModel.Instance.PreviousPage = MainWindowViewModel.Instance.PageSwitcher?.GetType().Name;
+                        MainWindowViewModel.Instance.PageSwitcher = new ModerView();
                     }
                     else if (Db.Users.FirstOrDefault(x => x.Email == login && x.Password == password && x.IdRole == 4) != null)
                     {
                         //Организатор
+                        MainWindowViewModel.Instance.loginedUser = Db.Users.Include(x => x.IdGenderNavigation).FirstOrDefault(x => x.Email == login && x.Password == password);
                         MainWindowViewModel.Instance.PreviousPage = MainWindowViewModel.Instance.PageSwitcher?.GetType().Name;
+                        MainWindowViewModel.Instance.PageSwitcher = new OrganizerView();
                     }
                     else if (Db.Users.FirstOrDefault(x => x.Email == login && x.Password == password && x.IdRole == 5) != null)
                     {
                         //Жюри
+                        MainWindowViewModel.Instance.loginedUser = Db.Users.Include(x => x.IdGenderNavigation).FirstOrDefault(x => x.Email == login && x.Password == password);
                         MainWindowViewModel.Instance.PreviousPage = MainWindowViewModel.Instance.PageSwitcher?.GetType().Name;
+                        MainWindowViewModel.Instance.PageSwitcher = new JuryView();
                     }
                     else
                     {

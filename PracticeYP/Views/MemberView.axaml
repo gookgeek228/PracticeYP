@@ -1,0 +1,39 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:vm="using:PracticeYP.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="PracticeYP.MemberView"
+			 x:DataType="vm:MemberViewModel">
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="60"/>
+			<RowDefinition Height="400"/>
+			<RowDefinition Height="60"/>
+		</Grid.RowDefinitions>
+
+		<StackPanel Grid.Row="0">
+			<TextBlock Text="Участники" HorizontalAlignment="Center" FontSize="20"></TextBlock>
+
+			<StackPanel Orientation="Horizontal" Spacing="20" Margin="20,0,0,0">
+				<TextBox Watermark="Поиск" Text="{Binding TextFind, Mode=TwoWay}" Width="300"></TextBox>
+			</StackPanel>
+		</StackPanel>
+
+		<ListBox Grid.Row="1" ItemsSource="{Binding Members}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Vertical">
+						<TextBlock Text="{Binding Fio}"></TextBlock>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+
+		<Button Grid.Row="2" VerticalAlignment="Center" Content="Назад" Command="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Aquamarine" Foreground="White" Width="140" Height="40" CornerRadius="10" Margin="20"></Button>
+
+	</Grid>
+	
+</UserControl>

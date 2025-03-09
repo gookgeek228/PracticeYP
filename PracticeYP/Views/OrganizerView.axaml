@@ -1,0 +1,42 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:vm="using:PracticeYP.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="PracticeYP.OrganizerView"
+			 x:DataType="vm:OrganizerViewModel">
+
+	<Grid>
+		
+		<Grid.RowDefinitions>
+			<RowDefinition Height="60"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="200"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<TextBlock Text="Организатор" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Margin="0,0,0,20"></TextBlock>
+
+		<StackPanel Grid.Column="0" Grid.Row="1">
+			<Button Content="Мой профиль" Command="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Aquamarine" Foreground="White" Width="120" Height="60" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Bottom"></Button>
+		</StackPanel>
+
+		<StackPanel Grid.Row="1" Grid.ColumnSpan="2" Spacing="10">
+			
+			<TextBlock Text="{Binding GreetingMessage}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Margin="0,0,0,5"></TextBlock>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="5">
+				<TextBlock Text="{Binding GenderMessage}" FontSize="20"></TextBlock>
+				<TextBlock Text="{Binding Name}" FontSize="20"></TextBlock>
+			</StackPanel>
+			<Button Content="Мероприятия" Command="{Binding GoToEvents}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Aquamarine" Foreground="White" Width="240" Height="60" CornerRadius="10" HorizontalAlignment="Center"></Button>
+			<Button Content="Участники" Command="{Binding GoToMembers}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Aquamarine" Foreground="White" Width="240" Height="60" CornerRadius="10" HorizontalAlignment="Center"></Button>
+			<Button Content="Жюри" Command="{Binding GoToJury}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Aquamarine" Foreground="White" Width="240" Height="60" CornerRadius="10" HorizontalAlignment="Center"></Button>
+
+		</StackPanel>
+
+	</Grid>
+</UserControl>
