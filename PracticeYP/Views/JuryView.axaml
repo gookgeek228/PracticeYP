@@ -6,5 +6,34 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="PracticeYP.JuryView"
 			 x:DataType="vm:JuryViewModel">
-  Welcome to Avalonia!
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="60"/>
+			<RowDefinition Height="400"/>
+			<RowDefinition Height="60"/>
+		</Grid.RowDefinitions>
+
+		<StackPanel Grid.Row="0">
+			<TextBlock Text="Жюри" HorizontalAlignment="Center" FontSize="20"></TextBlock>
+
+			<StackPanel Orientation="Horizontal" Spacing="20" Margin="20,0,0,0">
+				<TextBox Watermark="Поиск" Text="{Binding TextFind, Mode=TwoWay}" Width="300"></TextBox>
+			</StackPanel>
+		</StackPanel>
+
+		<ListBox Grid.Row="1" ItemsSource="{Binding JuryList}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Vertical">
+						<TextBlock Text="{Binding Fio}"></TextBlock>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+
+		<Button Grid.Row="2" VerticalAlignment="Center" Content="Назад" Command="{Binding GoBack}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Aquamarine" Foreground="White" Width="140" Height="40" CornerRadius="10" Margin="20"></Button>
+
+	</Grid>
+	
 </UserControl>

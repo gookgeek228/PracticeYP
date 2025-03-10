@@ -89,7 +89,7 @@ namespace PracticeYP.ViewModels
         [RelayCommand]
         private void GenerateCaptcha()
         {
-            CaptchaText = GenerateRandomText(6);
+            CaptchaText = GenerateRandomText(4);
             CaptchaImage = GenerateCaptchaImage(CaptchaText);
             UserInput = string.Empty;
             ResultMessage = string.Empty;
